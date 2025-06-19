@@ -3,6 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Course;
+use App\Models\Teacher;
+use App\Models\Student;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Schedule>
@@ -27,6 +30,9 @@ class ScheduleFactory extends Factory
             ]),
             'room' => 'Room ' . fake()->numberBetween(100, 500),
             'term' => fake()->randomElement(['1st Semester', '2nd Semester', '3rd Semester']),
+            'teacher_id' => Teacher::factory()->create()->id,
+            'student_id' => Student::factory()->create()->id,
+            'course_code' => Course::factory()->create()->course_code,
         ];
     }
 }

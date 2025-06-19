@@ -16,15 +16,15 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        $firstName = $this->faker->firstName;
-        $lastName = $this->faker->lastName;
-        $username = strtolower($firstName . '.' . $lastName . $this->faker->numberBetween(1, 99));
+        $firstName = fake()->firstName;
+        $lastName = fake()->lastName;
+        $username = strtolower($firstName . '.' . $lastName . fake()->numberBetween(1, 99));
         return [
             'first_name' => $firstName,
             'last_name' => $lastName,
             'user_name' => $username,
             'password' => bcrypt('password123'), // You can also use Hash::make()
-            'registration_date' => $this->faker->dateTimeBetween('-5 years', 'now')->format('Y-m-d'),
+            'registration_date' => fake()->dateTimeBetween('-5 years', 'now')->format('Y-m-d'),
         ];
     }
 }
