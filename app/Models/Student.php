@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Student extends Model
 {
@@ -17,15 +16,14 @@ class Student extends Model
         'birthday', 
     ];
 
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function courses(): HasMany
+    public function courses(): BelongsTo
     {
-        return $this->hasMany(Course::class, 'class_student');
+        return $this->belongsTo(Course::class, 'class_student');
     }
 
 }
