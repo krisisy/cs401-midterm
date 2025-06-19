@@ -4,9 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Model
 {
+
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'user_name',
+        'password',
+        'registration_date'
+    ];
+
     public function student(): HasOne
     {
         return $this->hasOne(Student::class);
@@ -16,4 +26,10 @@ class User extends Model
     {
         return $this->hasOne(Teacher::class);
     }
+
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsTo(Role::class, 'user_role');
+    }
+
 }
