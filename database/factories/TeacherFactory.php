@@ -23,7 +23,7 @@ class TeacherFactory extends Factory
             'first_name' => $firstName,
             'last_name' => $lastName,
             'email' => $email,
-            'program' => fake()->randomElement([
+            'department' => fake()->randomElement([
                 'BS Computer Science',
                 'BS Multimedia Arts',
                 'BS Entertainment and Multimedia Computing',
