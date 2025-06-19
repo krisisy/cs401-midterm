@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Teacher>
@@ -20,6 +21,8 @@ class TeacherFactory extends Factory
         $lastName = fake()->lastName;
         $email = strtolower($firstName . '.' . $lastName . fake()->numberBetween(1, 99) . '@ciit.edu.ph');
         return [
+
+            'user_id' => User::factory(),
             'first_name' => $firstName,
             'last_name' => $lastName,
             'email' => $email,
