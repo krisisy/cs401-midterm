@@ -17,6 +17,7 @@ return new class extends Migration
             $table->datetime('time_slot')->comment('time of the schedule.');
             $table->string('room')->max(20)->comment('room of the student.');
             $table->integer('term')->comment('current term.');
+            $table->timestamps();
         });
     }
 

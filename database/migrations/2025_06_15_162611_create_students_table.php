@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('program')->comment('program of the student.');
             $table->string('enrollment_year')->max(4)->comment('year of enrollment.');
             $table->datetime('birthday')->comment('birthday of the student');
+            $table->timestamps();
         });
     
     }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->comment('email of the teacher.');
             $table->string('department')->max(10)->comment('department of the teacher.');
             $table->datetime('birthday')->comment('birthday of the teacher');
+            $table->timestamps();
         });
     }
 
