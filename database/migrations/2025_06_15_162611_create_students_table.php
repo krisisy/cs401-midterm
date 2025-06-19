@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void {
 
         Schema::create('students', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->string('first_name')->comment('student first name.');
             $table->string('last_name')->comment('student last name.');
             $table->string('program')->comment('program of the student.');
             $table->string('enrollment_year')->max(4)->comment('year of enrollment.');
-            $table->datetime()->comment('birthday of the student');
+            $table->datetime('birthday')->comment('birthday of the student');
         });
     
     }

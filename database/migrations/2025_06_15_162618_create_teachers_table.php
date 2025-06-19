@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void 
     {
-        Schema::create('students', function (Blueprint $table) {
-            $table->id()->primary();
+        Schema::create('teachers', function (Blueprint $table) {
+            $table->id();
             $table->string('first_name')->comment('teacher first name.');
             $table->string('last_name')->comment('teacher last name.');
             $table->string('email')->comment('email of the teacher.');
             $table->string('department')->max(10)->comment('department of the teacher.');
-            $table->datetime()->comment('birthday of the teacher');
+            $table->datetime('birthday')->comment('birthday of the teacher');
         });
     }
 
