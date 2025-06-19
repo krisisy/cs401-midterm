@@ -16,10 +16,13 @@ class TeacherFactory extends Factory
      */
     public function definition(): array
     {
+        $firstName = fake()->firstName;
+        $lastName = fake()->lastName;
+        $email = strtolower($firstName . '.' . $lastName . fake()->numberBetween(1, 99) . '@ciit.edu.ph');
         return [
-            'first_name' => fake()->firstName,
-            'last_name' => fake()->lastName,
-            'email' => $this->faker->unique()->safeEmail,
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'email' => $email,
             'program' => fake()->randomElement([
                 'BS Computer Science',
                 'BS Multimedia Arts',
